@@ -14,6 +14,7 @@ export default function Header() {
       <div className="container mx-8 max-w-full lg:max-w-6xl px-6 py-4 flex items-center justify-between">
         {/* Logo and Title */}
         {/* Made changes here */}
+        {/* Another one */}
         <div className="flex items-center">
           <Link 
           href="/"
