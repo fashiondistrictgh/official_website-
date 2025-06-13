@@ -15,7 +15,7 @@ export default function Footer(){
             <Image
             width={60}
             height={60}
-            src="/log.png"
+            src="/tfdlogo.png"
             alt="Logo"
             // className="h-10"
           />
