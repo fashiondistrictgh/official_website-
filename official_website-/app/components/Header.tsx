@@ -13,6 +13,7 @@ export default function Header() {
     <header className="bg-gray-900 shadow-md flex flex-col justify-center lg:h-[90px] h-16 fixed w-full top-0 z-50">
       <div className="container mx-8 max-w-full lg:max-w-6xl px-6 py-4 flex items-center justify-between">
         {/* Logo and Title */}
+        {/* Made changes here */}
         <div className="flex items-center">
           <Link 
           href="/"
