@@ -17,22 +17,10 @@ export default function Footer(){
             height={60}
             src="/tfdlogo.png"
             alt="Logo"
-            // className="h-10"
+            className="pb-8"
           />
           </Link>
-          <Link
-          href={"/"}
-          >
-
-          <Image
-            width={100}
-            height={40}
-            src="/logo1.png"
-            alt="Text Logo"
-            // className="h-10"
-          />
-          </Link>
-          
+         
         
         </div>
                 <p className="text-gray-400">
