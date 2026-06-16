@@ -1,10 +1,10 @@
-import React from 'react'
-import ContactUs from '../components/ContactUs'
+import React from "react";
+import ContactUs from "../components/ContactUs";
 
-export default function page() {
+export default function Page() {
   return (
-    <div className='p-20'>
-        <ContactUs/>
-    </div>
-  )
+    <main className="min-h-screen bg-ivory pt-20 lg:pt-24">
+      <ContactUs />
+    </main>
+  );
 }

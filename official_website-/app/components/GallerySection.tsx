@@ -4,111 +4,93 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
+const feature = [
+  { src: "/gal1.jpg", title: "Street", caption: "Everyday edits" },
+  { src: "/gal3.jpg", title: "Classy", caption: "Refined essentials" },
+];
+
+const grid = ["/reep1.jpg", "/reep2.jpg", "/gal4.jpg", "/float.jpg"];
+
 export default function GallerySection() {
   return (
-    <section className="py-16 px-6 md:px-12 bg-white max-w-full mx-auto">
-      {/* Main Image Row */}
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="relative">
-          <Image
-            src="/gal1.jpg"
-            width={400}
-            height={300}
-            alt="Lived-In Stripes"
-            className="w-full h-auto object-cover rounded-lg shadow-md"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-center text-center text-white p-6">
-            <h3 className="lg:text-4xl text-2xl md:text-3xl font-bold mb-2">Street</h3>
-            
-          </div>
-        </div>
-        <div className="relative">
-          <Image
-            src="/gal3.jpg"
-            width={500}
-            height={500}
-            alt="Our Core Sueded Tee"
-            className="w-full h-auto object-cover rounded-lg shadow-md"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-center text-center text-white p-6">
-            <h3 className="lg:text-4xl text-2xl md:text-3xl font-bold mb-2">Classy</h3>
-          
-          </div>
-        </div>
-      </motion.div>
+    <section id="collection" className="bg-ivory py-24 lg:py-32">
+      <div className="mx-auto max-w-content px-6 lg:px-10">
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease }}
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-16 max-w-2xl"
+        >
+          <span className="eyebrow">The Collection</span>
+          <h2 className="display mt-5 text-4xl text-ink lg:text-5xl">
+            Curated for the way you live.
+          </h2>
+        </motion.div>
 
-      <div className="mt-10">
-        <h1 className="text-2xl lg:text-4xl text-center font-semibold">Quality</h1>
+        {/* Feature row */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {feature.map((item, i) => (
+            <motion.figure
+              key={item.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease, delay: i * 0.1 }}
+              viewport={{ once: true, margin: "-80px" }}
+              className="group relative aspect-[4/5] overflow-hidden"
+            >
+              <Image
+                src={item.src}
+                alt={item.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-[1200ms] ease-editorial group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+              <figcaption className="absolute inset-x-0 bottom-0 p-8 text-ivory">
+                <span className="block text-xs uppercase tracking-editorial text-brass-soft">
+                  {item.caption}
+                </span>
+                <span className="display mt-2 block text-3xl lg:text-4xl">{item.title}</span>
+              </figcaption>
+            </motion.figure>
+          ))}
+        </div>
+
+        {/* Quality divider */}
+        <div className="my-20 flex items-center gap-6">
+          <span className="h-px flex-1 bg-ink/15" />
+          <span className="text-xs uppercase tracking-editorial text-ink-muted">
+            Uncompromising Quality
+          </span>
+          <span className="h-px flex-1 bg-ink/15" />
+        </div>
+
+        {/* Grid row */}
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+          {grid.map((src, i) => (
+            <motion.div
+              key={src}
+              initial={{ opacity: 0, scale: 0.96 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, ease, delay: i * 0.08 }}
+              viewport={{ once: true, margin: "-60px" }}
+              className="group relative aspect-square overflow-hidden"
+            >
+              <Image
+                src={src}
+                alt="Gallery"
+                fill
+                sizes="(max-width: 768px) 50vw, 25vw"
+                className="object-cover transition-transform duration-[1200ms] ease-editorial group-hover:scale-110"
+              />
+            </motion.div>
+          ))}
+        </div>
       </div>
-
-      {/* Additional Image Row */}
-      <motion.div
-        className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8, staggerChildren: 0.2 }}
-        viewport={{ once: true }}
-      >
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Image
-            src="/reep1.jpg"
-            width={500}
-            height={500}
-            alt="Gallery Image 1"
-            className="w-full h-auto object-cover rounded-lg shadow-sm"
-          />
-        </motion.div>
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Image
-            src="/reep2.jpg"
-            width={500}
-            height={500}
-            alt="Gallery Image 2"
-            className="w-full h-auto object-cover rounded-lg shadow-sm"
-          />
-        </motion.div>
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Image
-            src="/gal4.jpg"
-            width={500}
-            height={500}
-            alt="Gallery Image 3"
-            className="w-full h-auto object-cover rounded-lg shadow-sm"
-          />
-        </motion.div>
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          {/* The image section  */}
-          <Image
-            src="/float.jpg"
-            width={500}
-            height={100}
-            alt="Gallery Image 4"
-            className="w-full h-full object-cover rounded-lg shadow-sm"
-          />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }

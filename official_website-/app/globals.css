@@ -2,3 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --background: #f7f3ec;
+  --foreground: #16130f;
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: #b08d4f;
+    color: #f7f3ec;
+  }
+}
+
+@layer components {
+  /* Editorial eyebrow label: uppercase, tracked, with a thin rule */
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-xs font-medium uppercase tracking-editorial text-brass;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply h-px w-8 bg-brass;
+  }
+
+  /* Large editorial display heading — light weight + tight leading */
+  .display {
+    @apply font-light leading-[1.05] tracking-tight;
+  }
+
+  /* Ghost / outline luxury button */
+  .btn-line {
+    @apply inline-flex items-center justify-center gap-2 border border-current px-8 py-3.5
+           text-xs font-medium uppercase tracking-wide transition-all duration-300
+           ease-editorial hover:bg-ink hover:text-ivory hover:border-ink;
+  }
+
+  /* Solid luxury button */
+  .btn-solid {
+    @apply inline-flex items-center justify-center gap-2 bg-ink px-8 py-3.5 text-xs
+           font-medium uppercase tracking-wide text-ivory transition-all duration-300
+           ease-editorial hover:bg-brass;
+  }
+}

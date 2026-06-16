@@ -2,62 +2,79 @@ import { Facebook, Instagram, Twitter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Footer(){
-    return (
-        <footer className="bg-gray-900 text-white py-12 mt-16">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Logo and About Section */}
-            <div>
-            <div className="flex items-center">
-          <Link 
-          href="/"
-          >
-            <Image
-            width={60}
-            height={60}
-            src="/tfdlogo.png"
-            alt="Logo"
-            className="pb-8"
-          />
-          </Link>
-         
-        
-        </div>
-                <p className="text-gray-400">
-                    Your gateway to the latest trends, timeless designs, and the vibrant culture of fashion.
-                </p>
-            </div>
+const quickLinks = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/#about" },
+  { label: "Collection", href: "/#collection" },
+  { label: "Get the App", href: "/#download-app" },
+  { label: "Contact", href: "/contact-us" },
+];
 
-            {/* Navigation Links */}
-            <div className="flex flex-col space-y-3">
-                <h3 className="text-lg font-semibold">Quick Links</h3>
-                <a href="/about" className="text-gray-400 hover:text-white">About Us</a>
-                <a href="/contact" className="text-gray-400 hover:text-white">Contact</a>
-                <a href="/privacy" className="text-gray-400 hover:text-white">Privacy Policy</a>
-                <a href="/terms" className="text-gray-400 hover:text-white">Terms of Service</a>
-            </div>
+const socials = [
+  { label: "Facebook", href: "#", Icon: Facebook },
+  { label: "Instagram", href: "#", Icon: Instagram },
+  { label: "Twitter", href: "#", Icon: Twitter },
+];
 
-            {/* Social Media Links */}
-            <div>
-                <h3 className="text-lg font-semibold">Follow Us</h3>
-                <div className="flex space-x-4 mt-3">
-                    <a href="#" className="text-gray-400 hover:text-white">
-                        <Facebook size={24} />
-                    </a>
-                    <a href="#" className="text-gray-400 hover:text-white">
-                        <Instagram size={24} />
-                    </a> 
-                    <a href="#" className="text-gray-400 hover:text-white">
-                        <Twitter size={24} />
-                    </a>
-                </div>
+export default function Footer() {
+  return (
+    <footer className="bg-ink text-ivory">
+      <div className="mx-auto max-w-content px-6 py-16 lg:px-10 lg:py-20">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
+          {/* Brand */}
+          <div className="max-w-sm">
+            <Link href="/" aria-label="The Fashion District — home">
+              <Image width={120} height={60} src="/tfdlogo.png" alt="The Fashion District" className="h-14 w-auto" />
+            </Link>
+            <p className="mt-6 text-sm font-light leading-relaxed text-ivory/60">
+              Your gateway to the latest trends, timeless designs, and the vibrant
+              culture of fashion.
+            </p>
+          </div>
+
+          {/* Quick links */}
+          <div>
+            <h3 className="text-xs font-medium uppercase tracking-editorial text-brass-soft">
+              Quick Links
+            </h3>
+            <ul className="mt-6 space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm font-light text-ivory/70 transition-colors hover:text-ivory"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Social */}
+          <div>
+            <h3 className="text-xs font-medium uppercase tracking-editorial text-brass-soft">
+              Follow Us
+            </h3>
+            <div className="mt-6 flex gap-4">
+              {socials.map(({ label, href, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="flex h-11 w-11 items-center justify-center border border-ivory/15 text-ivory/70 transition-all duration-300 hover:border-brass hover:text-brass"
+                >
+                  <Icon size={18} />
+                </a>
+              ))}
             </div>
+          </div>
         </div>
 
-        {/* Copyright */}
-        <div className="text-center mt-8 text-gray-500 text-sm">
-            © {new Date().getFullYear()} TFD: The Fashion District. All Rights Reserved.
+        <div className="mt-16 border-t border-ivory/10 pt-8 text-center text-xs tracking-wide text-ivory/40">
+          © {new Date().getFullYear()} TFD — The Fashion District. All rights reserved.
         </div>
+      </div>
     </footer>
-    )
+  );
 }

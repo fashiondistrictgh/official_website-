@@ -3,16 +3,13 @@ import DownloadAppSection from "./components/DownloadAppSection";
 import GallerySection from "./components/GallerySection";
 import Hero from "./components/Hero";
 
-
-export default function page() {
+export default function Page() {
   return (
-   <div className="bg-gray-100 min-h-screen">
-    {/* Main page  nnnf*/}
-   <Hero/>
-   <GallerySection/>
-   <DownloadAppSection/>
-   <AboutUs/>
-   </div>
-  
+    <main className="min-h-screen bg-ivory">
+      <Hero />
+      <GallerySection />
+      <DownloadAppSection />
+      <AboutUs />
+    </main>
   );
 }
