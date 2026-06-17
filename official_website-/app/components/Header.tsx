@@ -22,7 +22,7 @@ export default function Header() {
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-500 ease-editorial ${
         solid
-          ? "bg-ivory/95 backdrop-blur-md shadow-[0_1px_0_rgba(22,19,15,0.08)]"
+          ? "bg-ink/95 backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.25)]"
           : "bg-transparent"
       }`}
     >
@@ -35,9 +35,7 @@ export default function Header() {
             src="/tfdlogo.png"
             alt="The Fashion District"
             priority
-            className={`h-10 w-auto transition-all duration-500 lg:h-14 ${
-              solid ? "" : "brightness-0 invert"
-            }`}
+            className="h-10 w-auto brightness-0 invert transition-all duration-500 lg:h-14"
           />
         </Link>
 
@@ -45,17 +43,13 @@ export default function Header() {
         <nav className="hidden items-center gap-10 md:flex">
           <Link
             href="/contact-us"
-            className={`text-xs font-medium uppercase tracking-wide transition-colors duration-300 hover:text-brass ${
-              solid ? "text-ink" : "text-ivory"
-            }`}
+            className="text-xs font-medium uppercase tracking-wide text-ivory transition-colors duration-300 hover:text-brass"
           >
             Contact Us
           </Link>
           <Link
             href="#download-app"
-            className={`btn-line border-current text-xs ${
-              solid ? "text-ink" : "text-ivory"
-            }`}
+            className="btn-line border-current text-xs text-ivory"
           >
             Get the App
           </Link>
@@ -63,7 +57,7 @@ export default function Header() {
 
         {/* Mobile toggle */}
         <button
-          className={`md:hidden transition-colors ${solid ? "text-ink" : "text-ivory"}`}
+          className="md:hidden text-ivory transition-colors"
           onClick={() => setIsOpen((v) => !v)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
@@ -74,14 +68,14 @@ export default function Header() {
 
       {/* Mobile menu */}
       <div
-        className={`overflow-hidden border-t border-ink/10 bg-ivory md:hidden transition-[max-height] duration-500 ease-editorial ${
+        className={`overflow-hidden border-t border-ivory/10 bg-ink md:hidden transition-[max-height] duration-500 ease-editorial ${
           isOpen ? "max-h-60" : "max-h-0 border-t-0"
         }`}
       >
         <nav className="flex flex-col gap-1 px-6 py-4">
           <Link
             href="/contact-us"
-            className="py-3 text-sm font-medium uppercase tracking-wide text-ink hover:text-brass"
+            className="py-3 text-sm font-medium uppercase tracking-wide text-ivory hover:text-brass"
             onClick={() => setIsOpen(false)}
           >
             Contact Us
