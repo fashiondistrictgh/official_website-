@@ -20,9 +20,12 @@ export default function AboutUs() {
           <span className="eyebrow justify-center before:hidden">Our Story</span>
           <h2 className="display mt-5 text-4xl text-ink lg:text-5xl">About Us</h2>
           <p className="mt-6 text-lg font-light leading-relaxed text-ink-muted">
-            At The Fashion District, we redefine luxury fashion by blending modern
-            trends with timeless elegance — building an ecosystem that connects
-            designers, stylists, and fashion lovers worldwide.
+            Fashion District is a fashion lifestyle e-retailer driven to make
+            top-class fashion accessible nationwide. We&apos;re more than just a
+            brand — we are a fashion movement, delivering the season&apos;s
+            hottest looks faster than anyone else. Trusted nationwide for style
+            that&apos;s bold, accessible, and trendy, Fashion District is in the
+            habit of exceeding expectations.
           </p>
         </motion.div>
 
@@ -48,9 +51,10 @@ export default function AboutUs() {
               An inclusive space to thrive.
             </h3>
             <p className="mt-5 text-base font-light leading-relaxed text-ink-muted">
-              To provide an innovative space where fashion enthusiasts and designers
-              thrive — built on quality craftsmanship, sustainable practices, and
-              accessibility, so everyone can experience high-end fashion.
+              To provide an inclusive and innovative space where fashion
+              enthusiasts, designers, and entrepreneurs can thrive. We focus on
+              quality craftsmanship, sustainable practices, and accessibility to
+              ensure everyone can experience high-end fashion.
             </p>
           </motion.div>
         </div>
@@ -78,8 +82,8 @@ export default function AboutUs() {
               A global leader in style.
             </h3>
             <p className="mt-5 text-base font-light leading-relaxed text-ink-muted">
-              To become a global leader in luxury fashion e-commerce — integrating
-              technology with style to offer a seamless, personalized shopping
+              To become a global leader in luxury fashion e-commerce, integrating
+              technology with style to offer a seamless and personalized shopping
               experience.
             </p>
           </motion.div>
