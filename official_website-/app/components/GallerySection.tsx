@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const feature = [
-  { src: "/gal1.jpg", title: "Street", caption: "Everyday edits" },
+  { src: "/hero-logo.jpeg", title: "Street", caption: "Everyday edits" },
   { src: "/gal3.jpg", title: "Classy", caption: "Refined essentials" },
 ];
 
@@ -34,13 +34,14 @@ export default function GallerySection() {
         {/* Feature row */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {feature.map((item, i) => (
-            <motion.figure
+            <motion.a
               key={item.title}
+              href="#download-app"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease, delay: i * 0.1 }}
               viewport={{ once: true, margin: "-80px" }}
-              className="group relative aspect-[4/5] overflow-hidden"
+              className="group relative block aspect-[4/5] overflow-hidden"
             >
               <Image
                 src={item.src}
@@ -50,13 +51,13 @@ export default function GallerySection() {
                 className="object-cover transition-transform duration-[1200ms] ease-editorial group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
-              <figcaption className="absolute inset-x-0 bottom-0 p-8 text-ivory">
+              <div className="absolute inset-x-0 bottom-0 p-8 text-ivory">
                 <span className="block text-xs uppercase tracking-editorial text-brass-soft">
                   {item.caption}
                 </span>
                 <span className="display mt-2 block text-3xl lg:text-4xl">{item.title}</span>
-              </figcaption>
-            </motion.figure>
+              </div>
+            </motion.a>
           ))}
         </div>
 
