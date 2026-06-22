@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const feature = [
-  { src: "/hero-logo.jpeg", title: "Street", caption: "Everyday edits" },
+  { src: "/gal1.jpg", title: "Street", caption: "Everyday edits" },
   { src: "/gal3.jpg", title: "Classy", caption: "Refined essentials" },
 ];
 

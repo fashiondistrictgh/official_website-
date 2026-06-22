@@ -38,7 +38,7 @@ export default function AboutUs() {
             viewport={{ once: true, margin: "-80px" }}
             className="relative aspect-[4/3] overflow-hidden"
           >
-            <Image src="/gal4.jpg" alt="Our mission" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+            <Image src="/hero-logo.jpeg" alt="Our mission" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain bg-ivory" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 40 }}
